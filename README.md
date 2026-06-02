@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Humanity Horizon Foundation — Premium Web Platform
 
-## Getting Started
+Welcome to the **Humanity Horizon Foundation** static website codebase. 
 
-First, run the development server:
+This platform has been entirely rebuilt using modern **semantic HTML5**, **vanilla CSS3**, and **performant vanilla JavaScript** to guarantee stellar UX, exceptional performance, visual precision, and instant zero-dependency execution.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🌟 Architecture & Folder Structure
+
+All clean, standalone static files are located inside the `html-site/` directory:
+
+```text
+html-site/
+├── css/
+│   └── styles.css          # Unified custom design system (Variables, Glassmorphism, Responsive Grid)
+├── js/
+│   └── main.js             # Pure JavaScript for navigation, dark mode, lightbox, & AI Chatbot
+├── assets/                 # Brand assets (logo.png, hero-bg.png)
+├── index.html              # Home (Cinematic hero, mission pillars, campaigns, certifications)
+├── about.html              # Our Story (Mandate letter, timeline, leadership team, audit widgets)
+├── causes.html             # Active Causes (Category filters & instant search engine)
+├── programs.html           # Core Programs (Interactive education/health/water checklist tabs)
+├── impact.html             # Impact Dashboard (Live counters, custom SVG responsive charts)
+├── events.html             # Community Drives (Seat reservation & date switchers)
+├── gallery.html            # Media Gallery (Masonry grid, Category filters, lightbox popup)
+├── blog.html               # Field Diaries (Featured stories, articles, custom category search)
+├── volunteer.html          # Volunteer Portal (Journey map, opportunity list, FAQs, register form)
+├── donate.html             # Donation Center (Preset rupee tiers, tax calculations, Deloitte transparency seals)
+└── contact.html            # Reach Out (Department cards, WhatsApp deep link, contact form)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 How to Run Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Since this is a fully standalone, static platform, there are **no compile steps, npm dependencies, or development servers required**.
 
-## Learn More
+1. Navigate to the `html-site/` directory.
+2. Double-click the **`index.html`** file, or right-click and choose **"Open with..."** and select your favorite web browser (Chrome, Safari, Edge, Firefox).
+3. Experience the entire premium website, fluid dark mode theme syncing, interactive calculations, and visual filters instantly!
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💎 Key Features Built In
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*   **Premium Visual Polish:** Implements slate/gold and emerald/royal blue modern HSL palettes, smooth blur backdrops, glassmorphism containers, Google Poppins & Inter fonts, and subtle keyframe micro-animations (pulse rings, shimmer layers, visual floaters).
+*   **Fully Responsive & Accessible:** Designed with mobile-first flexbox grids and clean semantic structure for complete device-agnostic layouts.
+*   **Synchronized Dark Mode:** Persistent state management across pages using native HTML classes and `localStorage`.
+*   **Interactive Search & Filters:** Instantly filters causes, events, and gallery items using client-side vanilla JavaScript—meaning zero load delays or pagination refreshes.
+*   **Mock AI FAQ Chatbot:** Float-in AI conversational assistant (HorizonBot) designed to answer questions on Tax exemptions, volunteering, program details, and donations.
+*   **Custom Rupee Donation Panel:** Presets (₹1,500 - ₹50,000) linking direct mathematical operations to real-world impacts in real-time.

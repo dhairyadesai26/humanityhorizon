@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impact Dashboard — Humanity Horizon Foundation</title>
+  <meta name="description" content="Review our real-time impact numbers, financial audit growth chart, and global reach statistics. Verified transparency.">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Spacing & local layout for Impact metrics */
+    .impact-grid-8 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .impact-grid-8 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+    .chart-container {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--space-10);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="container navbar-container">
+      <a href="index.html" class="logo-block">
+        <div class="logo-wrapper">
+          <img src="assets/logo.png" alt="Humanity Horizon Logo">
+        </div>
+        <div>
+          <div class="logo-text-title">Humanity Horizon</div>
+          <div class="logo-text-sub">Foundation</div>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+        <div class="nav-item">
+          <a href="about.html" class="nav-link">About <span style="font-size:0.6rem">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="about.html" class="dropdown-link">
+              <div class="dropdown-icon">📖</div>
+              Our Story
+            </a>
+            <a href="about.html#team" class="dropdown-link">
+              <div class="dropdown-icon">👥</div>
+              Leadership Team
+            </a>
+            <a href="about.html#timeline" class="dropdown-link">
+              <div class="dropdown-icon">🗺️</div>
+              Our Journey
+            </a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="programs.html" class="nav-link">Programs <span style="font-size:0.6rem">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="programs.html" class="dropdown-link">
+              <div class="dropdown-icon">⚡</div>
+              All Programs
+            </a>
+            <a href="causes.html" class="dropdown-link">
+              <div class="dropdown-icon">💖</div>
+              Active Causes
+            </a>
+            <a href="impact.html" class="dropdown-link">
+              <div class="dropdown-icon">📊</div>
+              Impact Dashboard
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="events.html" class="nav-link">Events</a></div>
+        <div class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></div>
+        <div class="nav-item"><a href="blog.html" class="nav-link">Blog</a></div>
+        <div class="nav-item"><a href="volunteer.html" class="nav-link">Volunteer</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="donate.html" class="btn btn-primary" style="padding: var(--space-2.5) var(--space-5); font-size: 0.875rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:4px;"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+          Donate Now
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-drawer">
+      <div class="mobile-links">
+        <a href="index.html" class="mobile-link">Home</a>
+        <div class="mobile-category-title">About</div>
+        <a href="about.html" class="mobile-link">Our Story</a>
+        <a href="about.html#team" class="mobile-link">Leadership Team</a>
+        <a href="about.html#timeline" class="mobile-link">Our Journey</a>
+        <div class="mobile-category-title">Programs & Impact</div>
+        <a href="programs.html" class="mobile-link">All Programs</a>
+        <a href="causes.html" class="mobile-link">Active Causes</a>
+        <a href="impact.html" class="mobile-link">Impact Dashboard</a>
+        <div class="mobile-category-title">Community</div>
+        <a href="events.html" class="mobile-link">Events</a>
+        <a href="gallery.html" class="mobile-link">Gallery</a>
+        <a href="blog.html" class="mobile-link">Blog</a>
+        <a href="volunteer.html" class="mobile-link">Volunteer</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <div style="padding: var(--space-4);">
+          <a href="donate.html" class="btn btn-primary" style="display:flex; width:100%;">Donate Now</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Impact Header Section -->
+  <section class="section-padding text-center" style="background-color: #0f172a; color: #ffffff; padding-top: 140px; position:relative; overflow:hidden;">
+    <div class="container" style="position:relative; z-index:1;">
+      <span class="badge badge-primary-trans" style="margin-bottom:var(--space-4);">Real-Time Dashboard</span>
+      <h1 class="hero-title" style="margin-bottom:var(--space-4);">Our Traceable <span class="gradient-text">Impact</span></h1>
+      <p class="hero-subtitle" style="margin-left:auto; margin-right:auto;">Measuring operations in verified, direct-delivery metrics rather than administrative estimates.</p>
+    </div>
+  </section>
+
+  <!-- 8-Stat Impact Grid -->
+  <section class="section-padding container">
+    <div class="impact-grid-8" style="margin-bottom:var(--space-12);">
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">❤️</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">52,410</div>
+        <div class="hero-stat-label">Lives Impacted</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">📚</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">12,500</div>
+        <div class="hero-stat-label">School Textbook Packs</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">💧</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">50</div>
+        <div class="hero-stat-label">Solar Water Wells</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">🏥</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">18,400</div>
+        <div class="hero-stat-label">Mobile Clinic Checkups</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">👥</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">450+</div>
+        <div class="hero-stat-label">Women Micro-Guilds</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">🌱</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">25,000+</div>
+        <div class="hero-stat-label">Saplings Planted</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">🙋</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">1,500+</div>
+        <div class="hero-stat-label">Registered Volunteers</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon" style="font-size:2rem;">🗺️</div>
+        <div class="hero-stat-num" style="color:var(--text-main);">6</div>
+        <div class="hero-stat-label">States Covered</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive SVG Charts Section (Warrants dynamic visual elegance!) -->
+  <section class="section-padding" style="background-color: var(--bg-surface-alt);" data-tabs-container>
+    <div class="container">
+      <div class="text-center" style="margin-bottom:var(--space-8);">
+        <span class="section-tag">Audit Ratios</span>
+        <h2 class="section-title">Growth & Funds Metrics</h2>
+      </div>
+
+      <div class="tab-controllers" style="margin-bottom:var(--space-8);">
+        <button class="tab-btn active" data-tab-target="#growthChartPanel">Financial Growth</button>
+        <button class="tab-btn" data-tab-target="#fundsChartPanel">Allocation Breakdown</button>
+      </div>
+
+      <!-- Growth Chart (SVG Line Chart) -->
+      <div class="tab-panel active" id="growthChartPanel">
+        <div class="chart-container">
+          <h4 style="font-family:var(--font-heading); font-size:1.125rem; font-weight:700; margin-bottom:var(--space-4);">Year-on-Year Sponsoring Growth (INR Lakhs)</h4>
+          <div style="width:100%; height:320px;">
+            <!-- Clean, vector SVG Line Graph -->
+            <svg viewBox="0 0 500 200" style="width:100%; height:100%; overflow:visible;">
+              <defs>
+                <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0.0"/>
+                </linearGradient>
+              </defs>
+              <!-- Grid Lines -->
+              <line x1="50" y1="20" x2="480" y2="20" stroke="var(--border-color)" stroke-dasharray="4"/>
+              <line x1="50" y1="70" x2="480" y2="70" stroke="var(--border-color)" stroke-dasharray="4"/>
+              <line x1="50" y1="120" x2="480" y2="120" stroke="var(--border-color)" stroke-dasharray="4"/>
+              <line x1="50" y1="170" x2="480" y2="170" stroke="var(--border-color)"/>
+              
+              <!-- Y Axis Labels -->
+              <text x="20" y="24" fill="var(--text-muted)" font-size="9" font-weight="700">₹300L</text>
+              <text x="20" y="74" fill="var(--text-muted)" font-size="9" font-weight="700">₹200L</text>
+              <text x="20" y="124" fill="var(--text-muted)" font-size="9" font-weight="700">₹100L</text>
+              <text x="25" y="174" fill="var(--text-muted)" font-size="9" font-weight="700">₹0L</text>
+
+              <!-- X Axis Labels -->
+              <text x="80" y="190" fill="var(--text-muted)" font-size="9" font-weight="700">2021</text>
+              <text x="180" y="190" fill="var(--text-muted)" font-size="9" font-weight="700">2022</text>
+              <text x="280" y="190" fill="var(--text-muted)" font-size="9" font-weight="700">2023</text>
+              <text x="380" y="190" fill="var(--text-muted)" font-size="9" font-weight="700">2024</text>
+              <text x="460" y="190" fill="var(--text-muted)" font-size="9" font-weight="700">2025</text>
+
+              <!-- Area Path under Chart -->
+              <path d="M 80 170 L 80 140 Q 130 115 180 110 Q 230 100 280 80 Q 330 65 380 50 L 460 30 L 460 170 Z" fill="url(#areaGrad)"/>
+
+              <!-- Line Chart Path -->
+              <path d="M 80 140 Q 130 115 180 110 Q 230 100 280 80 Q 330 65 380 50 L 460 30" fill="none" stroke="var(--color-primary-light)" stroke-width="4" stroke-linecap="round"/>
+              
+              <!-- Dots on Path -->
+              <circle cx="80" cy="140" r="5" fill="var(--color-primary)"/>
+              <circle cx="180" cy="110" r="5" fill="var(--color-primary)"/>
+              <circle cx="280" cy="80" r="5" fill="var(--color-primary)"/>
+              <circle cx="380" cy="50" r="5" fill="var(--color-primary)"/>
+              <circle cx="460" cy="30" r="5" fill="var(--color-accent)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Funds Allocation (SVG Pie Chart) -->
+      <div class="tab-panel" id="fundsChartPanel">
+        <div class="chart-container" style="display:flex; flex-direction:column; align-items:center; gap:var(--space-6);">
+          <h4 style="font-family:var(--font-heading); font-size:1.125rem; font-weight:700; width:100%; text-align:left;">Sponsor Fund Allocation Ratios</h4>
+          <div style="width:180px; height:180px;">
+            <!-- Vector Doughnut Pie Chart -->
+            <svg viewBox="0 0 36 36" style="width:100%; height:100%;">
+              <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="var(--bg-surface-alt)" stroke-width="4"/>
+              
+              <!-- 85% Field Ops (Blue) -->
+              <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="var(--color-primary)" stroke-width="4" stroke-dasharray="85 15" stroke-dashoffset="25"/>
+              
+              <!-- 10% Monitoring (Teal) -->
+              <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="var(--color-accent)" stroke-width="4" stroke-dasharray="10 90" stroke-dashoffset="40"/>
+
+              <!-- 5% Admin (Orange) -->
+              <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="#f59e0b" stroke-width="4" stroke-dasharray="5 95" stroke-dashoffset="50"/>
+            </svg>
+          </div>
+          <!-- Legend -->
+          <div style="display:flex; justify-content:center; gap:var(--space-6); width:100%;">
+            <div style="display:flex; align-items:center; gap:var(--space-2); font-size:0.875rem;">
+              <span style="width:12px; height:12px; background-color:var(--color-primary); border-radius:3px; display:inline-block;"></span>
+              <span>Field Operations (85%)</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:var(--space-2); font-size:0.875rem;">
+              <span style="width:12px; height:12px; background-color:var(--color-accent); border-radius:3px; display:inline-block;"></span>
+              <span>Monitoring (10%)</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:var(--space-2); font-size:0.875rem;">
+              <span style="width:12px; height:12px; background-color:#f59e0b; border-radius:3px; display:inline-block;"></span>
+              <span>Admin (5%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo-block" style="margin-bottom:var(--space-4);">
+          <div class="logo-wrapper">
+            <img src="assets/logo.png" alt="Humanity Horizon Foundation">
+          </div>
+          <div>
+            <div class="logo-text-title" style="color:#ffffff;">Humanity Horizon</div>
+            <div class="logo-text-sub" style="color:#60a5fa;">Foundation</div>
+          </div>
+        </a>
+        <p class="footer-col-desc">Empowering underserved communities through education, healthcare, sustainable development, and humanitarian action. Join us in transforming lives.</p>
+        <div class="footer-socials">
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Our Pillars</h3>
+        <ul class="footer-links">
+          <li><a href="programs.html">Universal Education</a></li>
+          <li><a href="programs.html">Healthcare Access</a></li>
+          <li><a href="programs.html">Environmental Resilience</a></li>
+          <li><a href="programs.html">Women Empowerment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="causes.html">Active Causes</a></li>
+          <li><a href="volunteer.html">Volunteer Openings</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title">Newsletter</h3>
+        <p style="font-size:0.875rem; margin-bottom:var(--space-4);">Subscribe to our monthly impact digest to receive stories directly from the field.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address" class="newsletter-input">
+          <button class="btn btn-primary" style="padding:0 var(--space-4);">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Humanity Horizon Foundation. All rights reserved. Registered NGO under Sec 80G & FCRA.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Audit Reports</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating AI Chatbot -->
+  <div class="ai-chatbot">
+    <div class="chat-panel">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">🤖</div>
+          <div>
+            <div class="chat-bot-name">HorizonBot</div>
+            <div class="chat-bot-status">Online • FAQ Expert</div>
+          </div>
+        </div>
+        <button class="chat-close" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chat-messages">
+        <div class="chat-message chat-message-bot">Hello! I am HorizonBot. How can I help you support communities today? (Type 'donate', 'volunteer', 'programs', or 'tax')</div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" placeholder="Type a message...">
+        <button class="chat-send">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+    <button class="chat-trigger" aria-label="Open support chat">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
